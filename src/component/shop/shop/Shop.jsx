@@ -1,24 +1,24 @@
-import React, { useState, useRef } from 'react'
-import PropTypes from 'prop-types'
-import SwipeableViews from 'react-swipeable-views'
-import AppBar from '@material-ui/core/AppBar'
-import Tabs from '@material-ui/core/Tabs'
-import Tab from '@material-ui/core/Tab'
-import Typography from '@material-ui/core/Typography'
-import { useTheme } from '@material-ui/core/styles'
-import Box from '@material-ui/core/Box'
-import Container from '@material-ui/core/Container'
-import ManProducts from '../products/Man'
-import BagProducts from '../products/Bag'
-import WomanProducts from '../products/Woman'
-import ShoesProducts from '../products/Shoes'
-import WatchesProducts from '../products/Watches'
-import AllProducts from '../products/AllProducts'
-import FilterSection from './FilterSection'
-import useStyles from './Styles'
+import React, { useState, useRef } from 'react';
+import PropTypes from 'prop-types';
+import SwipeableViews from 'react-swipeable-views';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import Typography from '@material-ui/core/Typography';
+import { useTheme } from '@material-ui/core/styles';
+import Box from '@material-ui/core/Box';
+import Container from '@material-ui/core/Container';
+import ManProducts from '../products/Man';
+import BagProducts from '../products/Bag';
+import WomanProducts from '../products/Woman';
+import ShoesProducts from '../products/Shoes';
+import WatchesProducts from '../products/Watches';
+import AllProducts from '../products/AllProducts';
+import FilterSection from './FilterSection';
+import useStyles from './Styles';
 
 const TabPanel = (props) => {
-  const { children, value, index, ...other } = props
+  const { children, value, index, ...other } = props;
 
   return (
     <div
@@ -35,8 +35,8 @@ const TabPanel = (props) => {
         </Box>
       )}
     </div>
-  )
-}
+  );
+};
 TabPanel.propTypes = {
   // eslint-disable-next-line react/require-default-props
   children: PropTypes.node,
@@ -44,26 +44,26 @@ TabPanel.propTypes = {
   index: PropTypes.any.isRequired,
   // eslint-disable-next-line react/forbid-prop-types
   value: PropTypes.any.isRequired,
-}
+};
 const a11yProps = (index) => {
   return {
     id: `full-width-tab-${index}`,
     'aria-controls': `full-width-tabpanel-${index}`,
-  }
-}
+  };
+};
 
 const ShopHeader = () => {
-  const classes = useStyles()
-  const theme = useTheme()
-  const refAppBar = useRef()
-  const [filter, setFilter] = useState('ALL')
-  const [value, setValue] = useState(0)
+  const classes = useStyles();
+  const theme = useTheme();
+  const refAppBar = useRef();
+  const [filter, setFilter] = useState('ALL');
+  const [value, setValue] = useState(0);
   const handleChange = (event, newValue) => {
-    setValue(newValue)
-  }
+    setValue(newValue);
+  };
   const handleChangeIndex = (index) => {
-    setValue(index)
-  }
+    setValue(index);
+  };
 
   return (
     <Container>
@@ -130,7 +130,7 @@ const ShopHeader = () => {
         </SwipeableViews>
       </div>
     </Container>
-  )
-}
+  );
+};
 
-export default ShopHeader
+export default ShopHeader;

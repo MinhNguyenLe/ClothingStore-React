@@ -1,21 +1,21 @@
-import React from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import { Provider } from 'react-redux'
-import './App.css'
-import store from './redux/store'
-import Layout from './container/layout/Layout'
-import Home from './component/home/home/Home'
-import Shop from './component/shop/shop/Shop'
-import SingleProduct from './component/single-product/SingleProduct'
-import About from './component/about/About'
-import Contact from './component/contact/Contact'
-import Cart from './component/cart/Cart'
-import Favorites from './component/favorites/Favorites'
-import Help from './component/help/Help'
-import Profile from './component/account/profile/Profile'
-import SignIn from './component/account/sign-in/SignIn'
-import SignUp from './component/account/sign-up/SignUp'
-import NotFound from './component/not-found/NotFound'
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import './App.css';
+import store from './redux/store';
+import Layout from './container/layout/Layout';
+import Home from './component/home/home/Home';
+import Shop from './component/shop/shop/Shop';
+import SingleProduct from './component/single-product/SingleProduct';
+import About from './component/about/About';
+import Contact from './component/contact/Contact';
+import Cart from './component/cart/Cart';
+import Favorites from './component/favorites/Favorites';
+import Help from './component/help/Help';
+import Profile from './component/account/profile/Profile';
+import SignIn from './component/account/sign-in/SignIn';
+import SignUp from './component/account/sign-up/SignUp';
+import NotFound from './component/not-found/NotFound';
 
 function App() {
   return (
@@ -79,7 +79,7 @@ function App() {
         </Switch>
       </BrowserRouter>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

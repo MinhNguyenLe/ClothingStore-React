@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -41,6 +41,6 @@ const useStyles = makeStyles(() => ({
     justifyContent: 'center',
     alignItems: 'center',
   },
-}))
+}));
 
-export default useStyles
+export default useStyles;

@@ -1,12 +1,12 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import Container from '@material-ui/core/Container'
-import Button from '@material-ui/core/Button'
-import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined'
-import useStyles from './Styles'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Container from '@material-ui/core/Container';
+import Button from '@material-ui/core/Button';
+import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
+import useStyles from './Styles';
 
 const NotFound = () => {
-  const classes = useStyles()
+  const classes = useStyles();
 
   return (
     <Container className={classes.container}>
@@ -24,7 +24,7 @@ const NotFound = () => {
         </Button>
       </Link>
     </Container>
-  )
-}
+  );
+};
 
-export default NotFound
+export default NotFound;

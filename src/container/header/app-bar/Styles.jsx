@@ -1,4 +1,4 @@
-import { alpha, makeStyles } from '@material-ui/core/styles'
+import { alpha, makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -64,6 +64,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     paddingBottom: '15px !important',
   },
-}))
+}));
 
-export default useStyles
+export default useStyles;

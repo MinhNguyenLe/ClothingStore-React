@@ -19,7 +19,7 @@ const sizes = [
     value: 'Size XLarge',
     label: 'Size XL',
   },
-]
+];
 
 const colors = [
   {
@@ -42,5 +42,5 @@ const colors = [
     value: 'Gray',
     label: 'Gray',
   },
-]
-export { sizes, colors }
+];
+export { sizes, colors };

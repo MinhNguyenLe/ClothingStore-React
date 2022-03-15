@@ -1,26 +1,26 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import Box from '@material-ui/core/Box'
-import Container from '@material-ui/core/Container'
-import Grid from '@material-ui/core/Grid'
-import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
-import IconButton from '@material-ui/core/IconButton'
-import Hidden from '@material-ui/core/Hidden'
-import clsx from 'clsx'
-import FacebookIcon from '@material-ui/icons/Facebook'
-import InstagramIcon from '@material-ui/icons/Instagram'
-import LinkedInIcon from '@material-ui/icons/LinkedIn'
-import TwitterIcon from '@material-ui/icons/Twitter'
-import iconPayOne from '../../assets/images/icons/icon-pay-01.png'
-import iconPayTwo from '../../assets/images/icons/icon-pay-02.png'
-import iconPayThree from '../../assets/images/icons/icon-pay-03.png'
-import iconPayFour from '../../assets/images/icons/icon-pay-04.png'
-import iconPayFive from '../../assets/images/icons/icon-pay-05.png'
-import useStyles from './Styles'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Box from '@material-ui/core/Box';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import Hidden from '@material-ui/core/Hidden';
+import clsx from 'clsx';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import iconPayOne from '../../assets/images/icons/icon-pay-01.png';
+import iconPayTwo from '../../assets/images/icons/icon-pay-02.png';
+import iconPayThree from '../../assets/images/icons/icon-pay-03.png';
+import iconPayFour from '../../assets/images/icons/icon-pay-04.png';
+import iconPayFive from '../../assets/images/icons/icon-pay-05.png';
+import useStyles from './Styles';
 
 const FooterItem = ({ title }) => {
-  const classes = useStyles()
+  const classes = useStyles();
 
   return (
     <li className={classes.footerItem}>
@@ -28,11 +28,11 @@ const FooterItem = ({ title }) => {
         {title}
       </Link>
     </li>
-  )
-}
+  );
+};
 
 const Footer = () => {
-  const classes = useStyles()
+  const classes = useStyles();
 
   return (
     <Box className={classes.box}>
@@ -155,7 +155,7 @@ const Footer = () => {
         </Grid>
       </Container>
     </Box>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

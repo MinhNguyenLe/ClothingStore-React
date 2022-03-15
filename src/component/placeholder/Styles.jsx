@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
   customPlaceholder: {
@@ -22,6 +22,6 @@ const useStyles = makeStyles(() => ({
     width: '50px !important',
     marginBottom: '10px',
   },
-}))
+}));
 
-export default useStyles
+export default useStyles;

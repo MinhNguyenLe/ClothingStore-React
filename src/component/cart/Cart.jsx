@@ -1,96 +1,96 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
-import Container from '@material-ui/core/Container'
-import Grid from '@material-ui/core/Grid'
-import Card from '@material-ui/core/Card'
-import CardContent from '@material-ui/core/CardContent'
-import CardMedia from '@material-ui/core/CardMedia'
-import CardActionArea from '@material-ui/core/CardActionArea'
-import Button from '@material-ui/core/Button'
-import Typography from '@material-ui/core/Typography'
-import TextField from '@material-ui/core/TextField'
-import ButtonGroup from '@material-ui/core/ButtonGroup'
-import IconButton from '@material-ui/core/IconButton'
-import AddIcon from '@material-ui/icons/Add'
-import RemoveIcon from '@material-ui/icons/Remove'
-import DeleteIcon from '@material-ui/icons/Delete'
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
-import FavoriteIcon from '@material-ui/icons/Favorite'
-import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart'
-import Toast from '../toast/Toast'
-import { REMOVE_FROM_CART_ACTION } from '../../redux/cart/Action'
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import IconButton from '@material-ui/core/IconButton';
+import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
+import DeleteIcon from '@material-ui/icons/Delete';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import Toast from '../toast/Toast';
+import { REMOVE_FROM_CART_ACTION } from '../../redux/cart/Action';
 import {
   ADD_TO_FAVORITES_ACTION,
   REMOVE_FROM_FAVORITES_ACTION,
-} from '../../redux/favorites/Action'
-import AllProducts from '../../utils/all-products'
-import useStyles from './Styles'
+} from '../../redux/favorites/Action';
+import AllProducts from '../../utils/all-products';
+import useStyles from './Styles';
 
 const Cart = () => {
-  const classes = useStyles()
-  const carts = useSelector((state) => state.cartReducer)
-  const [favoritesStatus, setFavoritesStatus] = useState('Removed')
-  const dispatch = useDispatch()
+  const classes = useStyles();
+  const carts = useSelector((state) => state.cartReducer);
+  const [favoritesStatus, setFavoritesStatus] = useState('Removed');
+  const dispatch = useDispatch();
   const handleRemoveFromCart = (product) => {
-    dispatch(REMOVE_FROM_CART_ACTION(product))
+    dispatch(REMOVE_FROM_CART_ACTION(product));
     Toast.fire({
       animation: true,
       title: 'Product Removed From Cart List',
-    })
-  }
+    });
+  };
   const handleAddToFavorites = (product) => {
     if (favoritesStatus === 'Removed') {
-      dispatch(ADD_TO_FAVORITES_ACTION(product))
-      setFavoritesStatus('Added')
+      dispatch(ADD_TO_FAVORITES_ACTION(product));
+      setFavoritesStatus('Added');
       Toast.fire({
         animation: true,
         title: 'Product Added To Favorites',
-      })
+      });
     } else if (favoritesStatus === 'Added') {
-      dispatch(REMOVE_FROM_FAVORITES_ACTION(product))
-      setFavoritesStatus('Removed')
+      dispatch(REMOVE_FROM_FAVORITES_ACTION(product));
+      setFavoritesStatus('Removed');
       Toast.fire({
         animation: true,
         title: 'Product Removed From Favorites',
-      })
+      });
     }
-  }
-  const [state, setState] = useState({ currentProducts: [] })
+  };
+  const [state, setState] = useState({ currentProducts: [] });
   useEffect(() => {
-    const SelectedProductsID = carts.carts
+    const SelectedProductsID = carts.carts;
     if (Array.isArray(SelectedProductsID) && SelectedProductsID.length > 0) {
-      const SelectedProducts = []
+      const SelectedProducts = [];
       SelectedProductsID.filter((product) =>
         AllProducts.filter((obj) =>
           obj.id === product.id
             ? SelectedProducts.push({ ...obj, ...{ quantity: 1 } })
             : null
         )
-      )
-      setState({ ...state, currentProducts: SelectedProducts })
+      );
+      setState({ ...state, currentProducts: SelectedProducts });
     } else {
-      setState({ ...state, currentProducts: SelectedProductsID })
+      setState({ ...state, currentProducts: SelectedProductsID });
     }
-  }, [carts])
+  }, [carts]);
   const onHandleQuantity = (product, action) => {
-    const s = state.currentProducts
-    const i = product
+    const s = state.currentProducts;
+    const i = product;
     if (action === 'increase' && i.quantity < 10) {
-      i.quantity += 1
+      i.quantity += 1;
     }
     if (action === 'decrease' && i.quantity > 1) {
-      i.quantity -= 1
+      i.quantity -= 1;
     }
     s.filter((obj) =>
       obj.id === i.id ? Object.assign(obj, { quantity: i.quantity }) : null
-    )
-    setState({ ...state, currentProducts: s })
-  }
-  const { currentProducts } = state
-  let total = 0
+    );
+    setState({ ...state, currentProducts: s });
+  };
+  const { currentProducts } = state;
+  let total = 0;
   // eslint-disable-next-line no-return-assign
-  currentProducts.filter((obj) => (total += obj.quantity * obj.price))
+  currentProducts.filter((obj) => (total += obj.quantity * obj.price));
 
   return (
     <Container className={classes.container}>
@@ -124,7 +124,9 @@ const Cart = () => {
                               gutterBottom
                               variant="h6"
                               component="h2"
-                              style={{ fontSize: '24px' }}
+                              style={{
+                                fontSize: '24px',
+                              }}
                             >
                               {product.name}
                             </Typography>
@@ -259,7 +261,7 @@ const Cart = () => {
         )}
       </Grid>
     </Container>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;

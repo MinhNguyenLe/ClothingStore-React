@@ -1,7 +1,7 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Header from '../header/header/Header'
-import Footer from '../footer/Footer'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Header from '../header/header/Header';
+import Footer from '../footer/Footer';
 
 const Layout = ({ children }) => {
   return (
@@ -10,9 +10,9 @@ const Layout = ({ children }) => {
       {children}
       <Footer />
     </>
-  )
-}
+  );
+};
 
-Layout.propTypes = { children: PropTypes.node.isRequired }
+Layout.propTypes = { children: PropTypes.node.isRequired };
 
-export default Layout
+export default Layout;

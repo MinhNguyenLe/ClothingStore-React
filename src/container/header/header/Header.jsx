@@ -1,6 +1,6 @@
-import React from 'react'
-import TopBar from '../top-bar/TopBar'
-import NavBar from '../app-bar/AppBar'
+import React from 'react';
+import TopBar from '../top-bar/TopBar';
+import NavBar from '../app-bar/AppBar';
 
 const Header = () => {
   return (
@@ -8,7 +8,7 @@ const Header = () => {
       <TopBar />
       <NavBar />
     </>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

@@ -1,17 +1,17 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import Box from '@material-ui/core/Box'
-import Container from '@material-ui/core/Container'
-import Grid from '@material-ui/core/Grid'
-import Button from '@material-ui/core/Button'
-import Hidden from '@material-ui/core/Hidden'
-import Divider from '@material-ui/core/Divider'
-import clsx from 'clsx'
-import useStyles from './Styles'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Box from '@material-ui/core/Box';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+import Hidden from '@material-ui/core/Hidden';
+import Divider from '@material-ui/core/Divider';
+import clsx from 'clsx';
+import useStyles from './Styles';
 
 const TopBar = () => {
-  const classes = useStyles()
-  const account = JSON.parse(localStorage.getItem('Account'))
+  const classes = useStyles();
+  const account = JSON.parse(localStorage.getItem('Account'));
 
   return (
     <Box className={classes.box}>
@@ -100,7 +100,7 @@ const TopBar = () => {
         </Grid>
       </Hidden>
     </Box>
-  )
-}
+  );
+};
 
-export default TopBar
+export default TopBar;

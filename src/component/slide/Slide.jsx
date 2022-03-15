@@ -1,15 +1,15 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import Button from '@material-ui/core/Button'
-import Grid from '@material-ui/core/Grid'
-import Hidden from '@material-ui/core/Hidden'
-import useStyles from './Styles'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import Hidden from '@material-ui/core/Hidden';
+import useStyles from './Styles';
 
 const Slide = (data) => {
-  const classes = useStyles()
-  const { image } = data
-  const { title } = data
-  const { description } = data
+  const classes = useStyles();
+  const { image } = data;
+  const { title } = data;
+  const { description } = data;
 
   return (
     <>
@@ -25,7 +25,11 @@ const Slide = (data) => {
           <Link to="/shop">
             <Button
               className={`button-animation ${classes.buttonStyle}`}
-              style={{ width: '200px', height: '50px', fontSize: '20px' }}
+              style={{
+                width: '200px',
+                height: '50px',
+                fontSize: '20px',
+              }}
               variant="contained"
               color="primary"
             >
@@ -95,7 +99,7 @@ const Slide = (data) => {
         </Grid>
       </Hidden>
     </>
-  )
-}
+  );
+};
 
-export default Slide
+export default Slide;

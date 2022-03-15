@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -34,6 +34,6 @@ const useStyles = makeStyles(() => ({
     borderRadius: '25px',
   },
   imgGrid: { marginRight: '15px' },
-}))
+}));
 
-export default useStyles
+export default useStyles;

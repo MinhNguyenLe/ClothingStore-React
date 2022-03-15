@@ -1,15 +1,15 @@
-import React from 'react'
-import ReactPlaceholder from 'react-placeholder'
-import 'react-placeholder/lib/reactPlaceholder.css'
+import React from 'react';
+import ReactPlaceholder from 'react-placeholder';
+import 'react-placeholder/lib/reactPlaceholder.css';
 import {
   TextBlock,
   TextRow,
   RectShape,
-} from 'react-placeholder/lib/placeholders'
-import useStyles from './Styles'
+} from 'react-placeholder/lib/placeholders';
+import useStyles from './Styles';
 
 const CustomPlaceholder = () => {
-  const classes = useStyles()
+  const classes = useStyles();
 
   return (
     <div className={classes.customPlaceholder}>
@@ -22,11 +22,11 @@ const CustomPlaceholder = () => {
       />
       <TextRow className={classes.pricePlaceholder} color="#E0E0E0" rows={1} />
     </div>
-  )
-}
+  );
+};
 
 const Placeholder = () => {
-  return <ReactPlaceholder customPlaceholder={<CustomPlaceholder />} />
-}
+  return <ReactPlaceholder customPlaceholder={<CustomPlaceholder />} />;
+};
 
-export default Placeholder
+export default Placeholder;

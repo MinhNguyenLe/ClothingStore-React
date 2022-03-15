@@ -1,22 +1,22 @@
-import React from 'react'
-import Link from '@material-ui/core/Link'
-import { makeStyles } from '@material-ui/core/styles'
-import Typography from '@material-ui/core/Typography'
-import Title from './Title'
+import React from 'react';
+import Link from '@material-ui/core/Link';
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import Title from './Title';
 
 const preventDefault = (event) => {
-  event.preventDefault()
-}
+  event.preventDefault();
+};
 
 const useStyles = makeStyles({
   depositContext: {
     flex: 1,
   },
-})
+});
 
 const Deposits = () => {
-  const classes = useStyles()
-  const account = JSON.parse(localStorage.getItem('Account'))
+  const classes = useStyles();
+  const account = JSON.parse(localStorage.getItem('Account'));
 
   return (
     <>
@@ -33,7 +33,7 @@ const Deposits = () => {
         </Link>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Deposits
+export default Deposits;

@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import Grid from '@material-ui/core/Grid'
-import Button from '@material-ui/core/Button'
-import TextField from '@material-ui/core/TextField'
-import { makeStyles } from '@material-ui/core/styles'
+import React, { useState } from 'react';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
   itemInfoTitle: {
@@ -12,11 +12,11 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
     justifyContent: 'center',
   },
-}))
+}));
 
 const Information = () => {
-  const classes = useStyles()
-  const account = JSON.parse(localStorage.getItem('Account'))
+  const classes = useStyles();
+  const account = JSON.parse(localStorage.getItem('Account'));
   const [personalInfo, setPersonalInfo] = useState({
     firstName: 'Amir',
     lastName: 'Sadri',
@@ -24,10 +24,10 @@ const Information = () => {
     phoneNumber: '09384248024',
     emailAddress: 'Amirsadriofficial@gmail.com',
     location: 'Ahar, East Azerbaijan, Iran',
-  })
+  });
   const handleChange = (name, value) => {
-    setPersonalInfo({ ...personalInfo, [name]: value.target.value })
-  }
+    setPersonalInfo({ ...personalInfo, [name]: value.target.value });
+  };
 
   return (
     <>
@@ -102,7 +102,7 @@ const Information = () => {
         </Grid>
       </Grid>
     </>
-  )
-}
+  );
+};
 
-export default Information
+export default Information;

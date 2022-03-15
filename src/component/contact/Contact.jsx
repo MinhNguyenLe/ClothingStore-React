@@ -1,16 +1,16 @@
-import React from 'react'
-import Container from '@material-ui/core/Container'
-import Grid from '@material-ui/core/Grid'
-import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
-import clsx from 'clsx'
-import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined'
-import CallOutlinedIcon from '@material-ui/icons/CallOutlined'
-import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined'
-import useStyles from './Styles'
+import React from 'react';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import clsx from 'clsx';
+import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
+import CallOutlinedIcon from '@material-ui/icons/CallOutlined';
+import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
+import useStyles from './Styles';
 
 const Contact = () => {
-  const classes = useStyles()
+  const classes = useStyles();
 
   return (
     <>
@@ -91,7 +91,7 @@ const Contact = () => {
         </Grid>
       </Container>
     </>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

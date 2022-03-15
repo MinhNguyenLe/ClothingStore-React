@@ -1,17 +1,17 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import IconButton from '@material-ui/core/IconButton'
-import Badge from '@material-ui/core/Badge'
-import Hidden from '@material-ui/core/Hidden'
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
-import useStyles from './Styles'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import IconButton from '@material-ui/core/IconButton';
+import Badge from '@material-ui/core/Badge';
+import Hidden from '@material-ui/core/Hidden';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import useStyles from './Styles';
 
 const IconItems = () => {
-  const classes = useStyles()
-  const carts = useSelector((state) => state.cartReducer)
-  const favorites = useSelector((state) => state.favoritesReducer)
+  const classes = useStyles();
+  const carts = useSelector((state) => state.cartReducer);
+  const favorites = useSelector((state) => state.favoritesReducer);
 
   return (
     <>
@@ -50,7 +50,7 @@ const IconItems = () => {
         </IconButton>
       </Link>
     </>
-  )
-}
+  );
+};
 
-export default IconItems
+export default IconItems;

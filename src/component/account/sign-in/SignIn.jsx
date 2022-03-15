@@ -1,76 +1,76 @@
-import React, { useState } from 'react'
-import { Link, useHistory } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { useForm } from 'react-hook-form'
-import Avatar from '@material-ui/core/Avatar'
-import Button from '@material-ui/core/Button'
-import CssBaseline from '@material-ui/core/CssBaseline'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import InputLabel from '@material-ui/core/InputLabel'
-import IconButton from '@material-ui/core/IconButton'
-import InputAdornment from '@material-ui/core/InputAdornment'
-import Checkbox from '@material-ui/core/Checkbox'
-import Grid from '@material-ui/core/Grid'
-import Box from '@material-ui/core/Box'
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
-import Typography from '@material-ui/core/Typography'
-import Container from '@material-ui/core/Container'
-import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined'
-import Visibility from '@material-ui/icons/Visibility'
-import VisibilityOff from '@material-ui/icons/VisibilityOff'
-import OutlinedInput from '@material-ui/core/OutlinedInput'
-import Swal from 'sweetalert2'
-import CircularProgress from '@material-ui/core/CircularProgress'
-import { SIGN_IN_SUCCESS_ACTION } from '../../../redux/account/Action'
-import useStyles from './Styles'
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useForm } from 'react-hook-form';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import InputLabel from '@material-ui/core/InputLabel';
+import IconButton from '@material-ui/core/IconButton';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import Checkbox from '@material-ui/core/Checkbox';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import Swal from 'sweetalert2';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import { SIGN_IN_SUCCESS_ACTION } from '../../../redux/account/Action';
+import useStyles from './Styles';
 
 const SignIn = () => {
-  const classes = useStyles()
-  const history = useHistory()
-  const dispatch = useDispatch()
-  const [loading, setLoading] = useState(false)
+  const classes = useStyles();
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
   const [formValue, setFormValue] = useState({
     email: '',
-  })
+  });
   const [passwordValue, setPasswordValue] = useState({
     password: '',
     showPassword: false,
-  })
+  });
   const handleChangeInputs = (name, value) => {
-    setFormValue({ ...formValue, [name]: value.target.value })
-  }
+    setFormValue({ ...formValue, [name]: value.target.value });
+  };
   const handleChangePassword = (prop) => (event) => {
-    setPasswordValue({ ...passwordValue, [prop]: event.target.value })
-  }
+    setPasswordValue({ ...passwordValue, [prop]: event.target.value });
+  };
   const handleClickShowPassword = () => {
     setPasswordValue({
       ...passwordValue,
       showPassword: !passwordValue.showPassword,
-    })
-  }
+    });
+  };
   const handleMouseDownPassword = (event) => {
-    event.preventDefault()
-  }
+    event.preventDefault();
+  };
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm()
+  } = useForm();
   const onSubmit = () => {
     if (formValue !== '' && passwordValue !== '') {
-      setLoading(true)
+      setLoading(true);
       setTimeout(() => {
-        dispatch(SIGN_IN_SUCCESS_ACTION(formValue))
-        history.push('/')
+        dispatch(SIGN_IN_SUCCESS_ACTION(formValue));
+        history.push('/');
         Swal.fire(
           `Welcome Amir!`,
           'You have successfully signed in!',
           'success'
-        )
-        setLoading(false)
-      }, 2000)
+        );
+        setLoading(false);
+      }, 2000);
     }
-  }
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -203,7 +203,7 @@ const SignIn = () => {
         </Link>
       </Box>
     </Container>
-  )
-}
+  );
+};
 
-export default SignIn
+export default SignIn;

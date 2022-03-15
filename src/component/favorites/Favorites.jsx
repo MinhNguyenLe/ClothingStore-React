@@ -1,56 +1,56 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
-import Container from '@material-ui/core/Container'
-import Grid from '@material-ui/core/Grid'
-import Card from '@material-ui/core/Card'
-import CardContent from '@material-ui/core/CardContent'
-import CardMedia from '@material-ui/core/CardMedia'
-import CardActionArea from '@material-ui/core/CardActionArea'
-import Button from '@material-ui/core/Button'
-import Typography from '@material-ui/core/Typography'
-import DeleteIcon from '@material-ui/icons/Delete'
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos'
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
-import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart'
-import Toast from '../toast/Toast'
-import { REMOVE_FROM_FAVORITES_ACTION } from '../../redux/favorites/Action'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import DeleteIcon from '@material-ui/icons/Delete';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
+import Toast from '../toast/Toast';
+import { REMOVE_FROM_FAVORITES_ACTION } from '../../redux/favorites/Action';
 import {
   ADD_TO_CART_ACTION,
   REMOVE_FROM_CART_ACTION,
-} from '../../redux/cart/Action'
-import useStyles from './Styles'
+} from '../../redux/cart/Action';
+import useStyles from './Styles';
 
 const Favorites = () => {
-  const classes = useStyles()
-  const favorites = useSelector((state) => state.favoritesReducer)
-  const [cartStatus, setCartStatus] = useState('Removed')
-  const dispatch = useDispatch()
+  const classes = useStyles();
+  const favorites = useSelector((state) => state.favoritesReducer);
+  const [cartStatus, setCartStatus] = useState('Removed');
+  const dispatch = useDispatch();
   const handleRemoveFromFavorites = (product) => {
-    dispatch(REMOVE_FROM_FAVORITES_ACTION(product))
+    dispatch(REMOVE_FROM_FAVORITES_ACTION(product));
     Toast.fire({
       animation: true,
       title: 'Product Removed From Favorites List',
-    })
-  }
+    });
+  };
   const handleAddToCart = (product) => {
     if (cartStatus === 'Removed') {
-      dispatch(ADD_TO_CART_ACTION(product))
-      setCartStatus('Added')
+      dispatch(ADD_TO_CART_ACTION(product));
+      setCartStatus('Added');
       Toast.fire({
         animation: true,
         title: 'Product Added To Cart',
-      })
+      });
     } else if (cartStatus === 'Added') {
-      dispatch(REMOVE_FROM_CART_ACTION(product))
-      setCartStatus('Removed')
+      dispatch(REMOVE_FROM_CART_ACTION(product));
+      setCartStatus('Removed');
       Toast.fire({
         animation: true,
         title: 'Product Removed From Cart',
-      })
+      });
     }
-  }
+  };
 
   return (
     <Container className={classes.container}>
@@ -168,7 +168,7 @@ const Favorites = () => {
         )}
       </Grid>
     </Container>
-  )
-}
+  );
+};
 
-export default Favorites
+export default Favorites;

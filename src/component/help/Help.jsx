@@ -1,15 +1,15 @@
-import React from 'react'
-import Container from '@material-ui/core/Container'
-import Accordion from '@material-ui/core/Accordion'
-import AccordionSummary from '@material-ui/core/AccordionSummary'
-import AccordionDetails from '@material-ui/core/AccordionDetails'
-import Typography from '@material-ui/core/Typography'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import useStyles from './Styles'
+import React from 'react';
+import Container from '@material-ui/core/Container';
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import useStyles from './Styles';
 
 const AccordionComponent = (data) => {
-  const classes = useStyles()
-  const { title } = data
+  const classes = useStyles();
+  const { title } = data;
 
   return (
     <Accordion className={classes.accordionStyle}>
@@ -27,11 +27,11 @@ const AccordionComponent = (data) => {
         </Typography>
       </AccordionDetails>
     </Accordion>
-  )
-}
+  );
+};
 
 const Help = () => {
-  const classes = useStyles()
+  const classes = useStyles();
 
   return (
     <Container className={classes.container}>
@@ -49,7 +49,7 @@ const Help = () => {
         <AccordionComponent title="Need More Help?" />
       </div>
     </Container>
-  )
-}
+  );
+};
 
-export default Help
+export default Help;

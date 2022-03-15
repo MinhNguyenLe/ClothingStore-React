@@ -1,19 +1,19 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import Typography from '@material-ui/core/Typography'
-import Grid from '@material-ui/core/Grid'
-import Divider from '@material-ui/core/Divider'
-import Card from '@material-ui/core/Card'
-import CardContent from '@material-ui/core/CardContent'
-import CardMedia from '@material-ui/core/CardMedia'
-import CardActionArea from '@material-ui/core/CardActionArea'
-import Products from '../../../utils/all-products'
-import useStyles from './Styles'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import Divider from '@material-ui/core/Divider';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import Products from '../../../utils/all-products';
+import useStyles from './Styles';
 
 const SearchProducts = ({ data, open }) => {
-  const classes = useStyles()
-  const searchTerm = data
-  if (!open) return null
+  const classes = useStyles();
+  const searchTerm = data;
+  if (!open) return null;
 
   return (
     <>
@@ -22,9 +22,9 @@ const SearchProducts = ({ data, open }) => {
           searchTerm !== '' &&
           product.name.toLowerCase().includes(searchTerm.toLowerCase())
         ) {
-          return product
+          return product;
         }
-        return null
+        return null;
       }).map((product) => (
         <>
           <Link to={`/product/${product.id}`}>
@@ -51,7 +51,7 @@ const SearchProducts = ({ data, open }) => {
         </>
       ))}
     </>
-  )
-}
+  );
+};
 
-export default SearchProducts
+export default SearchProducts;

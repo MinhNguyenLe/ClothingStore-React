@@ -1,8 +1,8 @@
-import bagProduct1 from '../assets/images/products/bags/bag-product-01.jpg'
-import bagProduct2 from '../assets/images/products/bags/bag-product-02.jpg'
-import bagProduct3 from '../assets/images/products/bags/bag-product-03.webp'
-import bagProduct4 from '../assets/images/products/bags/bag-product-04.webp'
-import bagProduct5 from '../assets/images/products/bags/bag-product-05.webp'
+import bagProduct1 from '../assets/images/products/bags/bag-product-01.jpg';
+import bagProduct2 from '../assets/images/products/bags/bag-product-02.jpg';
+import bagProduct3 from '../assets/images/products/bags/bag-product-03.webp';
+import bagProduct4 from '../assets/images/products/bags/bag-product-04.webp';
+import bagProduct5 from '../assets/images/products/bags/bag-product-05.webp';
 
 const BAGS_PRODUCTS = [
   {
@@ -40,6 +40,6 @@ const BAGS_PRODUCTS = [
     image: bagProduct5,
     price: 115,
   },
-]
+];
 
-export default BAGS_PRODUCTS
+export default BAGS_PRODUCTS;

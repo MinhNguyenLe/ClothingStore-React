@@ -1,13 +1,13 @@
-import React from 'react'
-import Container from '@material-ui/core/Container'
-import Grid from '@material-ui/core/Grid'
-import Hidden from '@material-ui/core/Hidden'
-import useStyles from './Styles'
-import Gallery1 from '../../assets/images/gallery/about-01.jpg'
-import Gallery2 from '../../assets/images/gallery/about-02.jpg'
+import React from 'react';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import Hidden from '@material-ui/core/Hidden';
+import useStyles from './Styles';
+import Gallery1 from '../../assets/images/gallery/about-01.jpg';
+import Gallery2 from '../../assets/images/gallery/about-02.jpg';
 
 const About = () => {
-  const classes = useStyles()
+  const classes = useStyles();
 
   return (
     <>
@@ -198,7 +198,7 @@ const About = () => {
         </Grid>
       </Container>
     </>
-  )
-}
+  );
+};
 
-export default About
+export default About;

@@ -1,11 +1,11 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import Carousel from 'react-multi-carousel'
-import 'react-multi-carousel/lib/styles.css'
-import Grid from '@material-ui/core/Grid'
-import Button from '@material-ui/core/Button'
-import Card from '../card/Card'
-import useStyles from './Styles'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+import Card from '../card/Card';
+import useStyles from './Styles';
 
 const responsive = {
   desktop: {
@@ -23,10 +23,10 @@ const responsive = {
     items: 1,
     slidesToSlide: 1,
   },
-}
+};
 
 const CarouselComponent = ({ Products, title }) => {
-  const classes = useStyles()
+  const classes = useStyles();
 
   return (
     <Grid className={classes.bodySection}>
@@ -53,7 +53,7 @@ const CarouselComponent = ({ Products, title }) => {
         </Grid>
       </Grid>
     </Grid>
-  )
-}
+  );
+};
 
-export default CarouselComponent
+export default CarouselComponent;

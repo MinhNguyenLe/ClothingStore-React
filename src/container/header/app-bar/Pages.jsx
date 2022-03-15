@@ -15,6 +15,6 @@ const pages = [
     name: 'Contact',
     path: '/contact',
   },
-]
+];
 
-export default pages
+export default pages;

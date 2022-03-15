@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
   containerSpacing: {
@@ -32,6 +32,6 @@ const useStyles = makeStyles(() => ({
     left: '50px',
     fontSize: '18px',
   },
-}))
+}));
 
-export default useStyles
+export default useStyles;

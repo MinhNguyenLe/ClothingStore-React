@@ -5,6 +5,6 @@ const Types = {
   SIGN_UP_SUCCESS: 'SIGN_IN_SUCCESS',
   // Sign Out Type
   SIGN_OUT_SUCCESS: 'SIGN_OUT_SUCCESS',
-}
+};
 
-export default Types
+export default Types;

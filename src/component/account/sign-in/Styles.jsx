@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -34,6 +34,6 @@ const useStyles = makeStyles((theme) => ({
     color: 'blue',
     marginRight: '10px',
   },
-}))
+}));
 
-export default useStyles
+export default useStyles;

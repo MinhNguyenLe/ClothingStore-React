@@ -1,9 +1,9 @@
-import Types from './Types'
+import Types from './Types';
 
 const accountReducer = (state = [], action) => {
-  let signinStorage = []
-  let signupStorage = []
-  let signoutStorage = []
+  let signinStorage = [];
+  let signupStorage = [];
+  let signoutStorage = [];
   switch (action.type) {
     // Sign In
     case Types.SIGN_IN_SUCCESS:
@@ -15,8 +15,8 @@ const accountReducer = (state = [], action) => {
           deposit: action.deposit,
           logged: action.logged,
         },
-      ]
-      localStorage.setItem('Account', JSON.stringify(signinStorage))
+      ];
+      localStorage.setItem('Account', JSON.stringify(signinStorage));
       return {
         ...state,
         firstName: signinStorage.firstName,
@@ -24,7 +24,7 @@ const accountReducer = (state = [], action) => {
         email: signinStorage.email,
         deposit: signinStorage.deposit,
         logged: signinStorage.logged,
-      }
+      };
     // Sign Up
     case Types.SIGN_UP_SUCCESS:
       signupStorage = [
@@ -35,8 +35,8 @@ const accountReducer = (state = [], action) => {
           deposit: action.deposit,
           logged: action.logged,
         },
-      ]
-      localStorage.setItem('Account', JSON.stringify(signupStorage))
+      ];
+      localStorage.setItem('Account', JSON.stringify(signupStorage));
       return {
         ...state,
         firstName: signupStorage.firstName,
@@ -44,18 +44,18 @@ const accountReducer = (state = [], action) => {
         email: signupStorage.email,
         deposit: signupStorage.deposit,
         logged: signupStorage.logged,
-      }
+      };
     // Sign Out
     case Types.SIGN_OUT_SUCCESS:
-      signoutStorage = [{ logged: action.logged }]
-      localStorage.setItem('Account', JSON.stringify(signoutStorage))
+      signoutStorage = [{ logged: action.logged }];
+      localStorage.setItem('Account', JSON.stringify(signoutStorage));
       return {
         ...state,
         logged: signoutStorage.logged,
-      }
+      };
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default accountReducer
+export default accountReducer;

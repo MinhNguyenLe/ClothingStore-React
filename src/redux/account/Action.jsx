@@ -1,4 +1,4 @@
-import Types from './Types'
+import Types from './Types';
 
 // Sign In
 const SIGN_IN_SUCCESS_ACTION = (formValue) => {
@@ -9,8 +9,8 @@ const SIGN_IN_SUCCESS_ACTION = (formValue) => {
     email: formValue.email,
     deposit: 420,
     logged: true,
-  }
-}
+  };
+};
 // Sign Up
 const SIGN_UP_SUCCESS_ACTION = (formValue) => {
   return {
@@ -20,18 +20,18 @@ const SIGN_UP_SUCCESS_ACTION = (formValue) => {
     email: formValue.email,
     deposit: 0.0,
     logged: true,
-  }
-}
+  };
+};
 // Sign Out
 const SIGN_OUT_SUCCESS_ACTION = () => {
   return {
     type: Types.SIGN_OUT_SUCCESS,
     logged: false,
-  }
-}
+  };
+};
 
 export {
   SIGN_IN_SUCCESS_ACTION,
   SIGN_UP_SUCCESS_ACTION,
   SIGN_OUT_SUCCESS_ACTION,
-}
+};

@@ -1,25 +1,22 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:react/recommended"
+    // "airbnb",
+    // "plugin:prettier/recommended"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     },
-//     "extends": [
-//         "plugin:react/recommended",
-//         "airbnb"
-//         "plugin:prettier/recommended"
-//     ],
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 12,
-        "sourceType": "module"
-    },
-//     "plugins": [
-//         "react"
-//         "prettier"
-//     ],
-    "rules": {
-      "react/prop-types": "off"
-    }
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "prettier"],
+  "rules": {
+    "react/prop-types": "off"
+  }
 }

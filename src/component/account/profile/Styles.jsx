@@ -1,6 +1,6 @@
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles';
 
-const drawerWidth = 240
+const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -86,6 +86,6 @@ const useStyles = makeStyles((theme) => ({
     color: 'red',
     marginRight: '10px',
   },
-}))
+}));
 
-export default useStyles
+export default useStyles;

@@ -1,6 +1,6 @@
-import React from 'react'
-import SlideOne from '../../../assets/images/slide/slide-01.jpg'
-import Slide from '../../slide/Slide'
+import React from 'react';
+import SlideOne from '../../../assets/images/slide/slide-01.jpg';
+import Slide from '../../slide/Slide';
 
 const Slide1 = () => {
   return (
@@ -9,7 +9,7 @@ const Slide1 = () => {
       title="Woman Collection 2022"
       description="NEW SEASON"
     />
-  )
-}
+  );
+};
 
-export default Slide1
+export default Slide1;

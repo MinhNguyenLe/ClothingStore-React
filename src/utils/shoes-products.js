@@ -1,8 +1,8 @@
-import shoesProduct1 from '../assets/images/products/shoes/shoes-product-01.webp'
-import shoesProduct2 from '../assets/images/products/shoes/shoes-product-02.webp'
-import shoesProduct3 from '../assets/images/products/shoes/shoes-product-03.webp'
-import shoesProduct4 from '../assets/images/products/shoes/shoes-product-04.webp'
-import shoesProduct5 from '../assets/images/products/shoes/shoes-product-05.webp'
+import shoesProduct1 from '../assets/images/products/shoes/shoes-product-01.webp';
+import shoesProduct2 from '../assets/images/products/shoes/shoes-product-02.webp';
+import shoesProduct3 from '../assets/images/products/shoes/shoes-product-03.webp';
+import shoesProduct4 from '../assets/images/products/shoes/shoes-product-04.webp';
+import shoesProduct5 from '../assets/images/products/shoes/shoes-product-05.webp';
 
 const SHOES_PRODUCTS = [
   {
@@ -40,6 +40,6 @@ const SHOES_PRODUCTS = [
     image: shoesProduct5,
     price: 100,
   },
-]
+];
 
-export default SHOES_PRODUCTS
+export default SHOES_PRODUCTS;

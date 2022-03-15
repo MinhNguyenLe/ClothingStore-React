@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import Hidden from '@material-ui/core/Hidden'
-import Logo from '../../../assets/images/icons/logo.png'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Hidden from '@material-ui/core/Hidden';
+import Logo from '../../../assets/images/icons/logo.png';
 
 const LogoSection = () => {
   return (
@@ -25,7 +25,7 @@ const LogoSection = () => {
         </Link>
       </Hidden>
     </>
-  )
-}
+  );
+};
 
-export default LogoSection
+export default LogoSection;

@@ -1,12 +1,12 @@
-import React from 'react'
-import Box from '@material-ui/core/Box'
-import InputBase from '@material-ui/core/InputBase'
-import SearchIcon from '@material-ui/icons/Search'
-import CloseIcon from '@material-ui/icons/Close'
-import useStyles from './Styles'
+import React from 'react';
+import Box from '@material-ui/core/Box';
+import InputBase from '@material-ui/core/InputBase';
+import SearchIcon from '@material-ui/icons/Search';
+import CloseIcon from '@material-ui/icons/Close';
+import useStyles from './Styles';
 
 const SearchInput = ({ searchTerm, setSearchTerm, setIsOpen }) => {
-  const classes = useStyles()
+  const classes = useStyles();
 
   return (
     <Box className={classes.search}>
@@ -28,7 +28,7 @@ const SearchInput = ({ searchTerm, setSearchTerm, setIsOpen }) => {
         onClick={() => setIsOpen(true)}
       />
     </Box>
-  )
-}
+  );
+};
 
-export default SearchInput
+export default SearchInput;

@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles({
   container: {
@@ -17,6 +17,6 @@ const useStyles = makeStyles({
     fontSize: '50px',
     color: '#B71919',
   },
-})
+});
 
-export default useStyles
+export default useStyles;

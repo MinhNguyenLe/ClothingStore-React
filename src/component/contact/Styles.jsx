@@ -1,5 +1,5 @@
-import { makeStyles } from '@material-ui/core/styles'
-import Background from '../../assets/images/background/contact-bg.jpg'
+import { makeStyles } from '@material-ui/core/styles';
+import Background from '../../assets/images/background/contact-bg.jpg';
 
 const useStyles = makeStyles({
   background: {
@@ -76,6 +76,6 @@ const useStyles = makeStyles({
     color: '#717fe0',
     cursor: 'pointer',
   },
-})
+});
 
-export default useStyles
+export default useStyles;

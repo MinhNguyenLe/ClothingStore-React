@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
   box: {
@@ -64,6 +64,6 @@ const useStyles = makeStyles(() => ({
   buttonResponsiveStyle: {
     marginBottom: '30px',
   },
-}))
+}));
 
-export default useStyles
+export default useStyles;

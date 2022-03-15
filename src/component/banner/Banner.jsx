@@ -1,8 +1,8 @@
-import React from 'react'
-import Grid from '@material-ui/core/Grid'
+import React from 'react';
+import Grid from '@material-ui/core/Grid';
 
 const Banner2 = (data) => {
-  const { image } = data
+  const { image } = data;
 
   return (
     <Grid
@@ -22,7 +22,7 @@ const Banner2 = (data) => {
         />
       </Grid>
     </Grid>
-  )
-}
+  );
+};
 
-export default Banner2
+export default Banner2;

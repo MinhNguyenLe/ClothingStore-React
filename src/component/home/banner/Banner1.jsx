@@ -1,17 +1,17 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import Container from '@material-ui/core/Container'
-import Grid from '@material-ui/core/Grid'
-import banner1 from '../../../assets/images/banner/banner1-1.jpg'
-import banner2 from '../../../assets/images/banner/banner1-2.jpg'
-import banner3 from '../../../assets/images/banner/banner1-3.jpg'
-import useStyles from './Styles'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import banner1 from '../../../assets/images/banner/banner1-1.jpg';
+import banner2 from '../../../assets/images/banner/banner1-2.jpg';
+import banner3 from '../../../assets/images/banner/banner1-3.jpg';
+import useStyles from './Styles';
 
 const BannerComponent = (data) => {
-  const classes = useStyles()
-  const { image } = data
-  const { title } = data
-  const { description } = data
+  const classes = useStyles();
+  const { image } = data;
+  const { title } = data;
+  const { description } = data;
 
   return (
     <Grid item xs={12} sm={6} lg={4} className={classes.singleGrid}>
@@ -25,11 +25,11 @@ const BannerComponent = (data) => {
         </Link>
       </Grid>
     </Grid>
-  )
-}
+  );
+};
 
 const Banner1 = () => {
-  const classes = useStyles()
+  const classes = useStyles();
 
   return (
     <Container className={classes.containerSpacing}>
@@ -51,7 +51,7 @@ const Banner1 = () => {
         />
       </Grid>
     </Container>
-  )
-}
+  );
+};
 
-export default Banner1
+export default Banner1;

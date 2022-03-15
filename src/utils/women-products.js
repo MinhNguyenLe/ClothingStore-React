@@ -1,14 +1,14 @@
-import womanProduct1 from '../assets/images/products/women/woman-product-01.jpg'
-import womanProduct2 from '../assets/images/products/women/woman-product-02.jpg'
-import womanProduct3 from '../assets/images/products/women/woman-product-03.jpg'
-import womanProduct4 from '../assets/images/products/women/woman-product-04.jpg'
-import womanProduct5 from '../assets/images/products/women/woman-product-05.jpg'
-import womanProduct6 from '../assets/images/products/women/woman-product-06.jpg'
-import womanProduct7 from '../assets/images/products/women/woman-product-07.jpg'
-import womanProduct8 from '../assets/images/products/women/woman-product-08.jpg'
-import womanProduct9 from '../assets/images/products/women/woman-product-09.jpg'
-import womanProduct10 from '../assets/images/products/women/woman-product-10.jpg'
-import womanProduct11 from '../assets/images/products/women/woman-product-11.jpg'
+import womanProduct1 from '../assets/images/products/women/woman-product-01.jpg';
+import womanProduct2 from '../assets/images/products/women/woman-product-02.jpg';
+import womanProduct3 from '../assets/images/products/women/woman-product-03.jpg';
+import womanProduct4 from '../assets/images/products/women/woman-product-04.jpg';
+import womanProduct5 from '../assets/images/products/women/woman-product-05.jpg';
+import womanProduct6 from '../assets/images/products/women/woman-product-06.jpg';
+import womanProduct7 from '../assets/images/products/women/woman-product-07.jpg';
+import womanProduct8 from '../assets/images/products/women/woman-product-08.jpg';
+import womanProduct9 from '../assets/images/products/women/woman-product-09.jpg';
+import womanProduct10 from '../assets/images/products/women/woman-product-10.jpg';
+import womanProduct11 from '../assets/images/products/women/woman-product-11.jpg';
 
 const WOMEN_PRODUCTS = [
   {
@@ -88,6 +88,6 @@ const WOMEN_PRODUCTS = [
     image: womanProduct11,
     price: 200,
   },
-]
+];
 
-export default WOMEN_PRODUCTS
+export default WOMEN_PRODUCTS;

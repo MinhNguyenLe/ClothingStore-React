@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
   responsive: {
@@ -41,6 +41,6 @@ const useStyles = makeStyles(() => ({
     backgroundColor: '#717fe0',
     borderRadius: '25px',
   },
-}))
+}));
 
-export default useStyles
+export default useStyles;
