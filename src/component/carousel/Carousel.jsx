@@ -35,7 +35,7 @@ const CarouselComponent = ({ Products, title }) => {
       </Grid>
       <Carousel responsive={responsive} className={classes.carouselStyle}>
         {Products.map((product) => (
-          <Card data={product} />
+          <Card key={product.id} data={product} />
         ))}
       </Carousel>
       <Grid item xs={12} className={classes.buttonStyle}>

@@ -1,5 +1,5 @@
-import { makeStyles } from '@material-ui/core/styles'
-import Background from '../../assets/images/background/about-bg.jpg'
+import { makeStyles } from '@material-ui/core/styles';
+import Background from '../../assets/images/background/about-bg.jpg';
 
 const useStyles = makeStyles({
   background: {
@@ -63,6 +63,6 @@ const useStyles = makeStyles({
     borderLeft: '3px solid #888',
     paddingLeft: '20px',
   },
-})
+});
 
-export default useStyles
+export default useStyles;

@@ -81,7 +81,7 @@ const NavBar = () => {
                 }}
               >
                 {pages.map((page) => (
-                  <Link to={page.path}>
+                  <Link key={page.id} to={page.path}>
                     <MenuItem
                       key={page.name}
                       className={
@@ -104,6 +104,7 @@ const NavBar = () => {
             >
               {pages.map((page) => (
                 <Link
+                  key={page.id}
                   to={page.path}
                   className={
                     location.pathname === page.path && 'active-app-bar-link'
