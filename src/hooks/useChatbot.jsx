@@ -1,26 +1,21 @@
 import React, { useState, useMemo } from 'react'
 import { ChatController } from 'chat-ui-react';
 
-/**
- * arrQuestions [
- * ["type1","content1"],["type2",[options2]],,..
- * ]
- */
-export async function createQuestions(chatCtrl, arrQuestions) {
-  await arrQuestions.forEach(async (msg) => {
-    await chatCtrl.addMessage({
-      type: msg[0],
-      content: msg[1],
-    });
-  })
-}
-
-export class CCreateAnswer {
+export class CCreateMessage {
   constructor(chatCtrl) {
     this.chatCtrl = chatCtrl
   }
 
-  async create(indexAnswer) {
+  async createQuestion(index) {
+    await mockQuestions[index].forEach(async (msg) => {
+      await this.chatCtrl.addMessage({
+        type: msg[0],
+        content: msg[1],
+      });
+    })
+  }
+
+  async createAnswer(indexAnswer) {
     const answer = mockAnswers[indexAnswer]
 
     if (answer.length === 1)
@@ -34,13 +29,20 @@ export class CCreateAnswer {
   }
 }
 
-const mockArrQuestions = [
+const mockQuestions = [
   [
-    "text", "Hello, What's your name.2222222222222222,"
+    [
+      "text", "Hello, What's your name. 111111111,"
+    ]
   ],
   [
-    "text", "Hello, What's your name.3333333333,"
-  ],
+    [
+      "text", "Hello, What's your name.2222222222222222,"
+    ],
+    [
+      "text", "Hello, What's your name.3333333333,"
+    ],
+  ]
 ]
 
 const mockAnswers = [
@@ -66,18 +68,15 @@ const useChatbot = () => {
   const [chatCtrl] = useState(new ChatController())
 
   useMemo(async () => {
-    const createAnswer = new CCreateAnswer(chatCtrl)
+    const createMessage = new CCreateMessage(chatCtrl)
 
-    await chatCtrl.addMessage({
-      type: 'text',
-      content: `Hello, What's your name.`,
-    });
+    await createMessage.createQuestion(0)
 
-    const name = await createAnswer.create(0)
+    const name = await createMessage.createAnswer(0)
 
-    await createQuestions(chatCtrl, mockArrQuestions)
+    await createMessage.createQuestion(1)
 
-    const test = await createAnswer.create(1)
+    const test = await createMessage.createAnswer(1)
 
     console.log(name, test)
   }, [chatCtrl])
