@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { ChatController, MuiChat } from 'chat-ui-react';
+import React from 'react';
+import { MuiChat } from 'chat-ui-react';
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
+
+import useChatbot from "../../hooks"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,17 +29,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Chatbot = () => {
-  const [chatCtrl, setChatCtrl] = useState(new ChatController())
   const classes = useStyles();
-
-  useEffect(async () => {
-    await chatCtrl.addMessage({
-      type: 'text',
-      content: `Hello, What's your name.`,
-      self: false,
-    });
-    await chatCtrl.setActionRequest({ type: 'text' });
-  }, [])
+  const { chatCtrl } = useChatbot()
 
   return (
     <Container className={classes.container}>
