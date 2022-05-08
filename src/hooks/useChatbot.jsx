@@ -1,13 +1,16 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useEffect } from 'react'
 import { ChatController } from 'chat-ui-react';
+import { useSelector, useDispatch } from 'react-redux';
+import { SET_NAME, SET_PRODUCT_WANT_TO_BUY } from '../redux/chatbot/Action';
 
 export class CCreateMessage {
-  constructor(chatCtrl) {
-    this.chatCtrl = chatCtrl
+  constructor(chatCtrl, defaultParamsFromEnv) {
+    this.chatCtrl = chatCtrl,
+      this.defaultParamsFromEnv = defaultParamsFromEnv
   }
 
-  async createQuestion(index) {
-    await mockQuestions[index].forEach(async (msg) => {
+  async createQuestion(index, paramsFromEnv = this.defaultParamsFromEnv) {
+    await mockQuestions(paramsFromEnv)[index].forEach(async (msg) => {
       await this.chatCtrl.addMessage({
         type: msg[0],
         content: msg[1],
@@ -15,8 +18,8 @@ export class CCreateMessage {
     })
   }
 
-  async createAnswer(indexAnswer) {
-    const answer = mockAnswers[indexAnswer]
+  async createAnswer(indexAnswer, paramsFromEnv = this.defaultParamsFromEnv) {
+    const answer = mockAnswers(paramsFromEnv)[indexAnswer]
 
     if (answer.length === 1)
       return await this.chatCtrl.setActionRequest({
@@ -29,59 +32,150 @@ export class CCreateMessage {
   }
 }
 
-const mockQuestions = [
-  [
-    [
-      "text", "Hello, What's your name. 111111111,"
-    ]
-  ],
-  [
-    [
-      "text", "Hello, What's your name.2222222222222222,"
-    ],
-    [
-      "text", "Hello, What's your name.3333333333,"
-    ],
-  ]
-]
+export class CLifeCycleChatbot {
+  constructor(createMessage, paramsChatbot) {
+    this.createMessage = createMessage,
+      this.paramsChatbot = paramsChatbot
+  }
 
-const mockAnswers = [
-  [
-    "text"
-  ],
-  [
-    "multi-select",
+  async protocol0() {
+    await this.createMessage.createQuestion(0)
+    const name = await this.createMessage.createAnswer(0)
+
+    return name.value
+  }
+
+  async protocol1(nameRedux) {
+    await this.createMessage.createQuestion(1, {
+      ...this.paramsChatbot,
+      name: nameRedux
+    })
+    const productWantToBuy = await this.createMessage.createAnswer(1)
+
+    return productWantToBuy.options.map(product => product.value)
+  }
+
+  async protocol2(productWantToBuyRedux) {
+    await this.createMessage.createQuestion(2, {
+      ...this.paramsChatbot,
+      productWantToBuy: productWantToBuyRedux
+    })
+    const confirm = await this.createMessage.createAnswer(2)
+
+    return !!confirm.option.value
+  }
+}
+
+export function mockQuestions(paramsFromEnv) {
+  return [
     [
-      {
-        value: 'a',
-        text: 'A',
-      },
-      {
-        value: 'b',
-        text: 'B',
-      },
+      [
+        "text", "Hello, What's your name? (Please just input your name)"
+      ]
+    ],
+    [
+      [
+        "text", `Hello, ${paramsFromEnv.name}`
+      ],
+      [
+        "text", "What do you want to buy in my store?"
+      ],
+    ],
+    [
+      [
+        "text", `OK, you want to buy ${paramsFromEnv.productWantToBuy.toString()}`
+      ],
+      [
+        "text", "Please confirm it!"
+      ]
     ]
   ]
-]
+}
+
+export function mockAnswers(paramsFromEnv) {
+  return [
+    [
+      "text"
+    ],
+    [
+      "multi-select",
+      [
+        {
+          value: 'woman_product_',
+          text: `Woman's outfit`,
+        },
+        {
+          value: 'man_product_',
+          text: `Man's outfit`,
+        },
+        {
+          value: 'bag_product_',
+          text: 'Bag',
+        },
+        {
+          value: 'shoes_product_',
+          text: 'Shoes',
+        },
+        {
+          value: 'watches_product_',
+          text: 'Watches',
+        },
+      ]
+    ],
+    [
+      "select",
+      [
+        {
+          value: '-',
+          text: 'Yes'
+        },
+        {
+          value: '',
+          text: 'No'
+        },
+      ]
+    ],
+  ]
+}
 
 const useChatbot = () => {
+  const paramsChatbot = useSelector(state => state.chatbotReducer)
+  const dispatch = useDispatch()
+
   const [chatCtrl] = useState(new ChatController())
 
-  useMemo(async () => {
-    const createMessage = new CCreateMessage(chatCtrl)
+  useEffect(async () => {
+    const createMessage = new CCreateMessage(chatCtrl, paramsChatbot)
 
-    await createMessage.createQuestion(0)
+    const lifeCycleChatbot = new CLifeCycleChatbot(createMessage, paramsChatbot)
 
-    const name = await createMessage.createAnswer(0)
+    await runLifeCycleChatbot(lifeCycleChatbot);
+  }, [])
 
-    await createMessage.createQuestion(1)
+  async function callbackProtocol(func, lifeCycleChatbot) {
+    const switchCallback = await func();
 
-    const test = await createMessage.createAnswer(1)
+    const confirm = await lifeCycleChatbot.protocol2(switchCallback);
+    if (confirm) {
+      return;
+    } else {
+      await callbackProtocol(func, lifeCycleChatbot)
+    }
+  }
 
-    console.log(name, test)
-  }, [chatCtrl])
+  async function runLifeCycleChatbot(lifeCycleChatbot) {
+    const nameRedux = await lifeCycleChatbot.protocol0();
+    dispatch(SET_NAME(nameRedux));
 
-  return { chatCtrl }
+    await callbackProtocol(async () => {
+      const productWantToBuyRedux = await lifeCycleChatbot.protocol1(nameRedux);
+      dispatch(SET_PRODUCT_WANT_TO_BUY(productWantToBuyRedux))
+
+      return productWantToBuyRedux
+    }, lifeCycleChatbot)
+  }
+
+  return { chatCtrl, runLifeCycleChatbot, callbackProtocol }
 }
 
 export default useChatbot
