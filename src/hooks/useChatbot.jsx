@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { ChatController } from 'chat-ui-react';
 import { useSelector, useDispatch } from 'react-redux';
 import { SET_NAME, SET_PRODUCT_WANT_TO_BUY } from '../redux/chatbot/Action';
+import { createLinkToProducts, createListMsgsChatbot, random } from '../utils/chatbot';
+
+const gotoLinkMsg = "Buy in link ";
+const link = "http://localhost:3000/product/"
+const max = 10
 
 export class CCreateMessage {
   constructor(chatCtrl, defaultParamsFromEnv) {
@@ -52,7 +57,7 @@ export class CLifeCycleChatbot {
     })
     const productWantToBuy = await this.createMessage.createAnswer(1)
 
-    return productWantToBuy.options.map(product => product.value)
+    return productWantToBuy.options
   }
 
   async protocol2(productWantToBuyRedux) {
@@ -64,13 +69,25 @@ export class CLifeCycleChatbot {
 
     return !!confirm.option.value
   }
+
+  async protocol3(productWantToBuyRedux) {
+    await this.createMessage.createQuestion(3, {
+      ...this.paramsChatbot,
+      productWantToBuy: productWantToBuyRedux
+    })
+    productWantToBuyRedux.forEach((msg) => {
+      window.open(link + msg.value + random(max));
+    })
+
+    return await this.createMessage.createAnswer(3)
+  }
 }
 
 export function mockQuestions(paramsFromEnv) {
   return [
     [
       [
-        "text", "Hello, What's your name? (Please just input your name)"
+        "text", "Hello, What's your name?"
       ]
     ],
     [
@@ -88,7 +105,8 @@ export function mockQuestions(paramsFromEnv) {
       [
         "text", "Please confirm it!"
       ]
-    ]
+    ],
+    createListMsgsChatbot(createLinkToProducts(paramsFromEnv.productWantToBuy.map(product => product.value), max), gotoLinkMsg, link)
   ]
 }
 
@@ -135,6 +153,15 @@ export function mockAnswers(paramsFromEnv) {
         },
       ]
     ],
+    [
+      "multi-select",
+      [
+        {
+          value: 'buy_another',
+          text: `Buy another`,
+        }
+      ]
+    ],
   ]
 }
 
@@ -152,14 +179,14 @@ const useChatbot = () => {
     await runLifeCycleChatbot(lifeCycleChatbot);
   }, [])
 
-  async function callbackProtocol(func, lifeCycleChatbot) {
-    const switchCallback = await func();
+  async function callbackProtocolLevel1(func, lifeCycleChatbot) {
+    const switchCallback = await func(); // _productWantToBuyRedux
 
-    const confirm = await lifeCycleChatbot.protocol2(switchCallback);
+    const confirm = await lifeCycleChatbot.protocol2(switchCallback.map(product => product.text));
     if (confirm) {
-      return;
+      return switchCallback;
     } else {
-      await callbackProtocol(func, lifeCycleChatbot)
+      await callbackProtocolLevel1(func, lifeCycleChatbot)
     }
   }
 
@@ -167,15 +194,21 @@ const useChatbot = () => {
     const nameRedux = await lifeCycleChatbot.protocol0();
     dispatch(SET_NAME(nameRedux));
 
-    await callbackProtocol(async () => {
-      const productWantToBuyRedux = await lifeCycleChatbot.protocol1(nameRedux);
-      dispatch(SET_PRODUCT_WANT_TO_BUY(productWantToBuyRedux))
+    const productWantToBuyRedux = await callbackProtocolLevel1(async () => {
+      const _productWantToBuyRedux = await lifeCycleChatbot.protocol1(nameRedux);
+      dispatch(SET_PRODUCT_WANT_TO_BUY(_productWantToBuyRedux))
 
-      return productWantToBuyRedux
+      return _productWantToBuyRedux
     }, lifeCycleChatbot)
+
+    const isBuyAnother = await lifeCycleChatbot.protocol3(productWantToBuyRedux);
+
+    if (isBuyAnother) {
+      location.reload()
+    };
   }
 
-  return { chatCtrl, runLifeCycleChatbot, callbackProtocol }
+  return { chatCtrl }
 }
 
 export default useChatbot
