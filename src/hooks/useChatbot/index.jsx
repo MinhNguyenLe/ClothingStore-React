@@ -1,1 +1,1 @@
-export { default } from "./hooks/useChatbot"
+export { default } from './hooks/useChatbot';

@@ -1,33 +1,31 @@
-import { gotoLinkMsg, link, max } from "../common/enum"
-import { createLinkToProducts, createListMsgsChatbot, random } from '../common/utils';
+import { gotoLinkMsg, link, max } from '../common/enum';
+import {
+  createLinkToProducts,
+  createListMsgsChatbot,
+  random,
+} from '../common/utils';
 
 export default class CLifeCycleChatbot {
   constructor(createMessage) {
-    this.createMessage = createMessage
+    this.createMessage = createMessage;
   }
 
-  async protocol0() {
+  async askName() {
     await this.createMessage.createQuestion([
-      [
-        "text", "Hello, What's your name?"
-      ]
-    ])
-    const name = await this.createMessage.createAnswer(["text"])
+      ['text', "Hello, What's your name?"],
+    ]);
+    const name = await this.createMessage.createAnswer(['text']);
 
-    return name.value
+    return name.value;
   }
 
-  async protocol1(nameRedux) {
+  async askProductWantToBuy(nameRedux) {
     await this.createMessage.createQuestion([
-      [
-        "text", `Hello, ${nameRedux}`
-      ],
-      [
-        "text", "What do you want to buy in my store?"
-      ],
-    ])
+      ['text', `Hello, ${nameRedux}`],
+      ['text', 'What do you want to buy in my store?'],
+    ]);
     const productWantToBuy = await this.createMessage.createAnswer([
-      "multi-select",
+      'multi-select',
       [
         {
           value: 'woman_product_',
@@ -49,53 +47,57 @@ export default class CLifeCycleChatbot {
           value: 'watches_product_',
           text: 'Watches',
         },
-      ]
-    ])
+      ],
+    ]);
 
-    return productWantToBuy.options
+    return productWantToBuy.options;
   }
 
-  async protocol2(productWantToBuyRedux) {
+  async confirmAnswer(productWantToBuyRedux) {
     await this.createMessage.createQuestion([
-      [
-        "text", `OK, you want to buy ${productWantToBuyRedux.toString()}`
-      ],
-      [
-        "text", "Please confirm it!"
-      ]
-    ])
+      ['text', `OK, you want to buy ${productWantToBuyRedux.toString()}`],
+      ['text', 'Please confirm it!'],
+    ]);
     const confirm = await this.createMessage.createAnswer([
-      "select",
+      'select',
       [
         {
           value: '-',
-          text: 'Yes'
+          text: 'Yes',
         },
         {
           value: '',
-          text: 'No'
+          text: 'No',
         },
-      ]
-    ])
+      ],
+    ]);
 
-    return !!confirm.option.value
+    return !!confirm.option.value;
   }
 
-  async protocol3(productWantToBuyRedux) {
-    await this.createMessage.createQuestion(createListMsgsChatbot(createLinkToProducts(productWantToBuyRedux.map(product => product.value), max), gotoLinkMsg, link)
-    )
+  async sendLinkToProduct(productWantToBuyRedux) {
+    await this.createMessage.createQuestion(
+      createListMsgsChatbot(
+        createLinkToProducts(
+          productWantToBuyRedux.map((product) => product.value),
+          max
+        ),
+        gotoLinkMsg,
+        link
+      )
+    );
     // productWantToBuyRedux.forEach((msg) => {
     //   window.open(link + msg.value + random(max));
     // })
 
     return await this.createMessage.createAnswer([
-      "multi-select",
+      'multi-select',
       [
         {
           value: 'buy_another',
           text: `Buy another`,
-        }
-      ]
-    ])
+        },
+      ],
+    ]);
   }
 }

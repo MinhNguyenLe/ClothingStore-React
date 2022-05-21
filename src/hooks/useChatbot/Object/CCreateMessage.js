@@ -1,6 +1,6 @@
 export default class CCreateMessage {
   constructor(chatCtrl) {
-    this.chatCtrl = chatCtrl
+    this.chatCtrl = chatCtrl;
   }
 
   async createQuestion(questions) {
@@ -9,7 +9,7 @@ export default class CCreateMessage {
         type: msg[0],
         content: msg[1],
       });
-    })
+    });
   }
 
   async createAnswer(answer) {
@@ -17,9 +17,10 @@ export default class CCreateMessage {
       return await this.chatCtrl.setActionRequest({
         type: answer[0],
       });
-    else return await this.chatCtrl.setActionRequest({
-      type: answer[0],
-      options: answer[1],
-    });
+    else
+      return await this.chatCtrl.setActionRequest({
+        type: answer[0],
+        options: answer[1],
+      });
   }
 }
