@@ -4,7 +4,7 @@ import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 import { useSelector, useDispatch } from 'react-redux';
 
-import useChatbot from "../../hooks"
+import useChatbot from "../../hooks/useChatbot"
 
 const useStyles = makeStyles((theme) => ({
   root: {
