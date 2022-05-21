@@ -37,11 +37,10 @@ async function useRunLifeCycleChatbot(createMessage) {
       const isBuyAnother = await lifeCycleChatbot.sendLinkToProduct(
         state.productWantToBuy
       );
-      // if (isBuyAnother) {
-      //   location.reload()
-      // };
+      if (isBuyAnother) {
+        await runLifeCycle(1);
+      };
     }
-    console.log('..............', state);
   }
 
   await runLifeCycle();
