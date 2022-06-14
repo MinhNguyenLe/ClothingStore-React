@@ -8,5 +8,5 @@ export default combineReducers({
   accountReducer,
   cartReducer,
   favoritesReducer,
-  chatbotReducer
+  chatbotReducer,
 });

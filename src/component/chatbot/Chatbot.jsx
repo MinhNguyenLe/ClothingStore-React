@@ -4,7 +4,7 @@ import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 import { useSelector, useDispatch } from 'react-redux';
 
-import useChatbot from "../../hooks"
+import useChatbot from '../../hooks/useChatbot';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     marginTop: '25px',
     marginBottom: '50px',
-    height: "600px"
+    height: '600px',
   },
   accordionStyle: {
     '&:hover': {
@@ -31,15 +31,18 @@ const useStyles = makeStyles((theme) => ({
 
 const Chatbot = () => {
   const classes = useStyles();
-  const { chatCtrl } = useChatbot()
-  const paramsChatbot = useSelector(state => state.chatbotReducer)
-  console.log("=============================", paramsChatbot)
+  const { chatCtrl } = useChatbot();
+  const paramsChatbot = useSelector((state) => state.chatbotReducer);
+  console.log('=============================', paramsChatbot);
   return (
     <Container className={classes.container}>
       <p>{paramsChatbot?.name}</p>
-      <MuiChat style={{ display: 'flex', justifyContent: 'space-between' }} chatController={chatCtrl} />
+      <MuiChat
+        style={{ display: 'flex', justifyContent: 'space-between' }}
+        chatController={chatCtrl}
+      />
     </Container>
   );
-}
+};
 
-export default Chatbot
+export default Chatbot;
