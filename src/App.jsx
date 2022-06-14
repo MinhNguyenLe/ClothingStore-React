@@ -16,6 +16,9 @@ import Profile from './component/account/profile/Profile';
 import SignIn from './component/account/sign-in/SignIn';
 import SignUp from './component/account/sign-up/SignUp';
 import NotFound from './component/not-found/NotFound';
+import Chatbot from './component/chatbot/Chatbot';
+import Checkout from './component/checkout';
+import Orders from './component/account/profile/Orders';
 
 function App() {
   return (
@@ -53,6 +56,11 @@ function App() {
                 <Cart />
               </Layout>
             </Route>
+            <Route path="/checkout">
+              <Layout>
+                <Checkout />
+              </Layout>
+            </Route>
             <Route path="/favorites">
               <Layout>
                 <Favorites />
@@ -61,6 +69,11 @@ function App() {
             <Route path="/help">
               <Layout>
                 <Help />
+              </Layout>
+            </Route>
+            <Route path="/chatbot">
+              <Layout>
+                <Chatbot />
               </Layout>
             </Route>
             <Route path="/profile">

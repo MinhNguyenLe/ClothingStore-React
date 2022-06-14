@@ -88,6 +88,62 @@ const WOMEN_PRODUCTS = [
     image: womanProduct11,
     price: 200,
   },
+  {
+    id: 'woman_product_1',
+    name: 'Esprit Ruffle Shirt',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+    image: womanProduct1,
+    price: 105,
+  },
+  {
+    id: 'woman_product_2',
+    name: 'Herschel Supply',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+    image: womanProduct2,
+    price: 120,
+  },
+  {
+    id: 'woman_product_3',
+    name: 'T-Shirt With Sleeve',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+    image: womanProduct3,
+    price: 85,
+  },
+  {
+    id: 'woman_product_4',
+    name: 'Classic Trench Coat',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+    image: womanProduct4,
+    price: 90,
+  },
+  {
+    id: 'woman_product_5',
+    name: 'Front Pocket Jumper',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+    image: womanProduct5,
+    price: 135,
+  },
+  {
+    id: 'woman_product_6',
+    name: 'Square Neck Back',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+    image: womanProduct6,
+    price: 70,
+  },
+  {
+    id: 'woman_product_7',
+    name: 'Shirt in Stretch Cotton',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+    image: womanProduct7,
+    price: 220,
+  },
+  {
+    id: 'woman_product_8',
+    name: 'Pieces Metallic Printed',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+    image: womanProduct8,
+    price: 160,
+  },
 ];
 
 export default WOMEN_PRODUCTS;

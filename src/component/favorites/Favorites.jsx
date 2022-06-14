@@ -61,7 +61,7 @@ const Favorites = () => {
         {favorites.favorites.length > 0 ? (
           <>
             {favorites.favorites.map((product) => (
-              <Grid item xs={12} md={6}>
+              <Grid key={product.id} item xs={12} md={6}>
                 <Card className={classes.root}>
                   <CardActionArea className={classes.cardArea}>
                     <Grid item xs={5} sm={3}>

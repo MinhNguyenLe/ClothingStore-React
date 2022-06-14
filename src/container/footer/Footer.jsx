@@ -150,7 +150,7 @@ const Footer = () => {
             style={{ textAlign: 'center', paddingTop: '20px' }}
           >
             Copyright ©2022 All rights reserved | Developed By
-            <span className={classes.spanColor}>Amir Sadri</span>
+            <span className={classes.spanColor}>MinhLee</span>
           </Grid>
         </Grid>
       </Container>

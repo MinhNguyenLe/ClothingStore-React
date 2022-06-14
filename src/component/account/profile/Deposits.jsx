@@ -17,15 +17,21 @@ const useStyles = makeStyles({
 const Deposits = () => {
   const classes = useStyles();
   const account = JSON.parse(localStorage.getItem('Account'));
+  const bought = JSON.parse(localStorage.getItem('bought'));
+
+  const sum = bought.reduce(
+    (previousValue, currentValue) => parseFloat(previousValue) + parseFloat(currentValue.total),
+    0
+  );
 
   return (
     <>
       <Title>Recent Deposits</Title>
       <Typography component="p" variant="h4">
-        ${account[0].deposit}.00
+        ${sum}.00
       </Typography>
       <Typography color="textSecondary" className={classes.depositContext}>
-        on 15 February, 2022
+        {new Date().toLocaleDateString("en-US")}
       </Typography>
       <div>
         <Link color="primary" href="/#" onClick={preventDefault}>

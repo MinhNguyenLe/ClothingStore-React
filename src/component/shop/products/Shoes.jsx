@@ -30,7 +30,9 @@ const Shoes = ({ filter }) => {
   return (
     <Grid container spacing={3}>
       {placeholder
-        ? filteredProducts.map((product) => <Card data={product} />)
+        ? filteredProducts.map((product) => (
+            <Card key={product.id} data={product} />
+          ))
         : numOfPlaceholder.map((PlaceholderItems) => PlaceholderItems)}
     </Grid>
   );

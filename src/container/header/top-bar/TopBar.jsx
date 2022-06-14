@@ -52,6 +52,13 @@ const TopBar = () => {
                 </Button>
               </Link>
             </Grid>
+            <Grid className={clsx(classes.border, classes.aloneBorder)}>
+              <Link to="/chatbot">
+                <Button className={classes.TextColor} href="/chatbot">
+                  Chat bot
+                </Button>
+              </Link>
+            </Grid>
           </Grid>
         </Container>
       </Hidden>

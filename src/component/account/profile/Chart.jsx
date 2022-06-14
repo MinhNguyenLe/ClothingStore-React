@@ -1,5 +1,5 @@
-import React from 'react'
-import { useTheme } from '@material-ui/core/styles'
+import React from 'react';
+import { useTheme } from '@material-ui/core/styles';
 import {
   LineChart,
   Line,
@@ -7,12 +7,12 @@ import {
   YAxis,
   Label,
   ResponsiveContainer,
-} from 'recharts'
-import Title from './Title'
+} from 'recharts';
+import Title from './Title';
 
 const createData = (time, amount) => {
-  return { time, amount }
-}
+  return { time, amount };
+};
 
 const data = [
   createData('January', 0),
@@ -27,10 +27,10 @@ const data = [
   createData('October', 2000),
   createData('November', 2200),
   createData('December', 2400),
-]
+];
 
 const Chart = () => {
-  const theme = useTheme()
+  const theme = useTheme();
 
   return (
     <>
@@ -64,7 +64,7 @@ const Chart = () => {
         </LineChart>
       </ResponsiveContainer>
     </>
-  )
-}
+  );
+};
 
-export default Chart
+export default Chart;

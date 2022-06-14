@@ -12,49 +12,6 @@ const createData = (id, date, product, shipTo, paymentMethod, amount) => {
   return { id, date, product, shipTo, paymentMethod, amount };
 };
 
-const rows = [
-  createData(
-    0,
-    '11 Mar, 2019',
-    'Celine Micro Belt Bag',
-    'Ahar, East Azerbaijan, Iran',
-    'VISA ⠀•••• 3719',
-    70
-  ),
-  createData(
-    1,
-    '07 Aug, 2019',
-    'Herschel Supply',
-    'Ahar, East Azerbaijan, Iran',
-    'VISA ⠀•••• 2574',
-    130
-  ),
-  createData(
-    2,
-    '23 Jun, 2020',
-    'Adidas Black Shoes',
-    'Ahar, East Azerbaijan, Iran',
-    'MC ⠀•••• 1253',
-    95
-  ),
-  createData(
-    3,
-    '16 Sep, 2021',
-    'Modern Black Watch',
-    'Ahar, East Azerbaijan, Iran',
-    'AMEX ⠀•••• 2000',
-    220
-  ),
-  createData(
-    4,
-    '09 Dec, 2021',
-    'Women Office Wear',
-    'Ahar, East Azerbaijan, Iran',
-    'VISA ⠀•••• 5919',
-    200
-  ),
-];
-
 const preventDefault = (event) => {
   event.preventDefault();
 };
@@ -67,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
 
 const Orders = () => {
   const classes = useStyles();
+
+  const rows = JSON.parse(localStorage.getItem("bought"))
+
   return (
     <>
       <Title>Recent Orders</Title>
@@ -83,11 +43,11 @@ const Orders = () => {
         <TableBody>
           {rows.map((row) => (
             <TableRow key={row.id}>
-              <TableCell>{row.date}</TableCell>
-              <TableCell>{row.product}</TableCell>
-              <TableCell>{row.shipTo}</TableCell>
-              <TableCell>{row.paymentMethod}</TableCell>
-              <TableCell align="right">${row.amount}</TableCell>
+              <TableCell>{row.date ? new Date(row.date).toLocaleDateString("en-US") : new Date().toLocaleDateString("en-US")}</TableCell>
+              <TableCell>{row.name}</TableCell>
+              <TableCell>{row.address}</TableCell>
+              <TableCell>{row.typeCard} {row.cardNumber}</TableCell>
+              <TableCell align="right">${row.total}.00</TableCell>
             </TableRow>
           ))}
         </TableBody>

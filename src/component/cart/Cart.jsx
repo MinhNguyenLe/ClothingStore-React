@@ -69,6 +69,7 @@ const Cart = () => {
         )
       );
       setState({ ...state, currentProducts: SelectedProducts });
+
     } else {
       setState({ ...state, currentProducts: SelectedProductsID });
     }
@@ -234,15 +235,18 @@ const Cart = () => {
               <p style={{ fontSize: '25px' }}>
                 Total: <span>${total}</span>
               </p>
-              <Button
-                variant="contained"
-                color="primary"
-                size="large"
-                fullWidth
-                className={classes.checkoutButton}
-              >
-                Proceed To Checkout
-              </Button>
+              <Link to="/checkout">
+                <Button
+                  onClick={() => localStorage.setItem('sum', total)}
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  fullWidth
+                  className={classes.checkoutButton}
+                >
+                  Proceed To Checkout
+                </Button>
+              </Link>
             </Grid>
           </>
         ) : (
