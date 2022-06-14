@@ -68,7 +68,10 @@ const Cart = () => {
             : null
         )
       );
+      console.log(state, SelectedProducts)
       setState({ ...state, currentProducts: SelectedProducts });
+
+      console.log({ ...state, currentProducts: SelectedProducts })
     } else {
       setState({ ...state, currentProducts: SelectedProductsID });
     }
@@ -88,6 +91,7 @@ const Cart = () => {
     setState({ ...state, currentProducts: s });
   };
   const { currentProducts } = state;
+  console.log(carts)
   let total = 0;
   // eslint-disable-next-line no-return-assign
   currentProducts.filter((obj) => (total += obj.quantity * obj.price));
@@ -234,15 +238,17 @@ const Cart = () => {
               <p style={{ fontSize: '25px' }}>
                 Total: <span>${total}</span>
               </p>
-              <Button
-                variant="contained"
-                color="primary"
-                size="large"
-                fullWidth
-                className={classes.checkoutButton}
-              >
-                Proceed To Checkout
-              </Button>
+              <Link to="/checkout">
+                <Button
+                  variant="contained"
+                  color="primary"
+                  size="large"
+                  fullWidth
+                  className={classes.checkoutButton}
+                >
+                  Proceed To Checkout
+                </Button>
+              </Link>
             </Grid>
           </>
         ) : (
