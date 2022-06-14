@@ -57,6 +57,24 @@ export default function Checkout() {
     setActiveStep(activeStep - 1);
   };
 
+  const payment = () => {
+    const oldProducts = JSON.parse(localStorage.getItem("bought"))
+    const newProducts = {
+      total: localStorage.getItem("sum"),
+      name: localStorage.getItem("name"),
+      address: localStorage.getItem("address"),
+      cardNumber: localStorage.getItem("cardNumber"),
+      typeCard: localStorage.getItem("typeCard"),
+      date: new Date()
+    }
+    if (oldProducts) {
+      localStorage.setItem("bought", JSON.stringify([...oldProducts, newProducts]))
+    } else {
+      localStorage.setItem("bought", JSON.stringify([newProducts]))
+    }
+    setActiveStep(activeStep + 1);
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -108,14 +126,21 @@ export default function Checkout() {
                       Back
                     </Button>
                   )}
-
-                  <Button
-                    variant="contained"
-                    onClick={handleNext}
-                    sx={{ mt: 3, ml: 1 }}
-                  >
-                    {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
-                  </Button>
+                  {
+                    activeStep === steps.length - 1 ? <Button
+                      variant="contained"
+                      onClick={payment}
+                      sx={{ mt: 3, ml: 1 }}
+                    >
+                      Place order
+                    </Button> : <Button
+                      variant="contained"
+                      onClick={handleNext}
+                      sx={{ mt: 3, ml: 1 }}
+                    >
+                      Next
+                    </Button>
+                  }
                 </Box>
               </React.Fragment>
             )}

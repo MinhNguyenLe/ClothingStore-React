@@ -18,6 +18,7 @@ import SignUp from './component/account/sign-up/SignUp';
 import NotFound from './component/not-found/NotFound';
 import Chatbot from './component/chatbot/Chatbot';
 import Checkout from './component/checkout';
+import Orders from './component/account/profile/Orders';
 
 function App() {
   return (

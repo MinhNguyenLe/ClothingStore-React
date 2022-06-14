@@ -68,10 +68,8 @@ const Cart = () => {
             : null
         )
       );
-      console.log(state, SelectedProducts)
       setState({ ...state, currentProducts: SelectedProducts });
 
-      console.log({ ...state, currentProducts: SelectedProducts })
     } else {
       setState({ ...state, currentProducts: SelectedProductsID });
     }
@@ -91,7 +89,6 @@ const Cart = () => {
     setState({ ...state, currentProducts: s });
   };
   const { currentProducts } = state;
-  console.log(carts)
   let total = 0;
   // eslint-disable-next-line no-return-assign
   currentProducts.filter((obj) => (total += obj.quantity * obj.price));
@@ -240,6 +237,7 @@ const Cart = () => {
               </p>
               <Link to="/checkout">
                 <Button
+                  onClick={() => localStorage.setItem('sum', total)}
                   variant="contained"
                   color="primary"
                   size="large"
